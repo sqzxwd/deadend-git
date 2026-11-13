@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "deadend-git"
+version = "0.1.0"
+description = "Semantic git blame & dead-end ledger for multi-agent development"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "typer>=0.15.0",
+    "rich>=13.0.0",
+    "mcp>=2.0.0",
+    "pytest>=8.0.0",
+    "anyio>=4.0.0",
+]
+
+[project.scripts]
+deadend = "src.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
